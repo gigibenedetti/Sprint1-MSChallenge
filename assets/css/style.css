@@ -1,5 +1,3 @@
-
-
 :root{
     --dark: #2b2d42;
     --light: #adb5bd;
@@ -66,7 +64,7 @@ a{
 }
 
 #header nav{
-    background-color: #06d6a0;
+    background-color: black;
     padding: 1em 0;
     width: 100%;
 }
@@ -96,6 +94,12 @@ table{
     border-top: 1px solid var(--border);
 }
 
+#title{
+    font-size: 25px;
+    font-weight: bold;
+    color: white;
+}
+
 .table td>a.btn{
     padding: .3em 1em;
     font-size: 1.1em;
@@ -103,7 +107,7 @@ table{
 }
 
 .table tr:hover{
-    background-color: #06d6a0;
+    background-color: red;
 }
 
 .table tr:hover td>a{
@@ -149,12 +153,23 @@ table{
     margin: auto;
 }
 
-#update_product.form-group,
+#update_product.form-group{
+    margin: .4em 0;
+}
+
 #add_product.form-group{
     margin: .4em 0;
 }
 
-#update_product.form-group input[type="text"],
+#update_product.form-group input[type="text"]{
+    width: 100%;
+    padding: .6em 1em;
+    margin: .5em 0;
+    border: 1px solid var(--border);
+    font-size: 1em;
+    border-radius: .2em;
+}
+
 #add_product.form-group input[type="text"]{
     width: 100%;
     padding: .6em 1em;
@@ -173,7 +188,17 @@ table{
     border-radius: .2em;
 }
 
-#update_product.form-group .btn,
+#update_product.form-group .btn{
+    width: 100%;
+    padding: .9em 1em;
+    background-color: #16db93;
+    border: none;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: .2em;
+    margin: .5em 0;
+}
+
 #add_product.form-group.btn{
     width: 100%;
     padding: .9em 1em;
@@ -185,7 +210,11 @@ table{
     margin: .5em 0;
 }
 
-#update_product.form-group .btn:hover,
+#update_product.form-group .btn:hover{
+    background-color: var(--dark);
+    color: var(--border);
+}
+
 #add_product.form-group .btn:hover{
     background-color: var(--dark);
     color: var(--border);

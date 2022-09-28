@@ -25,7 +25,7 @@ route.get('/add-product', services.add_product);
 
 /**
  * @description update product
- * @method GET /update-product
+ * @method PUT /update-product
  */ 
 
 route.get('/update-product', services.update_product);
@@ -35,7 +35,6 @@ route.post('/api/products', controller.create);
 route.get('/api/products', controller.find);
 route.put('/api/products/:id', controller.update);
 route.delete('/api/products/:id', controller.delete);
-//route.post('', mail.sendMail());
 
 let transporter = nodemailer.createTransport(smtpTransport({
     host: process.env.SMTP_MAIL_HOST,
@@ -46,16 +45,13 @@ let transporter = nodemailer.createTransport(smtpTransport({
     }
   }));
   
-  //get route to send mail, from form
   route.post('/api/send-email', function(req,res){
-    //options
     const mailOptions = {
          from: process.env.SMTP_MAIL_USERNAME,
          to: 'gigi_benedetti@hotmail.com.br',
          subject: 'Test mail',
          text:'Email enviado com sucesso.'
      };
-    //delivery
     transporter.sendMail(mailOptions, function(error, info){
          if (error) {
              console.log(error);  

@@ -1,5 +1,4 @@
 var ProdutoDB = require('../model/model');
-var mail = require('../configs/email');
 
 exports.create=(req, res) => {
     if(!req.body){
@@ -55,16 +54,16 @@ exports.find = (req, res) => {
 }
 
 exports.update = (req, res) => {
-    if(!req.body){
+    if(!req.body) {
         return res.status(400).send({message: "Os dados não podem estar em branco"})
     }
  
     const id = req.params.id;
-    ProdutoDB.findByIdAndUpdate(id, req.body).then(data =>{
-        if(!data){
+    ProdutoDB.findByIdAndUpdate(id, req.body, { useFindAndModify: false }).then(data => {
+        if(!data) {
             res.stauts(404).send({message: "Não foi possível atualizar os dados do produto"})
         } else{
-            res.send(data)
+            res.send({message: "Produto atualizado com sucesso!"})
         }
     })
     .catch(err =>{

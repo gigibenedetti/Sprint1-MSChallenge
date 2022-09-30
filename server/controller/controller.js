@@ -14,9 +14,7 @@ exports.create=(req, res) => {
     })
 
     produto.save(produto).then(data => {
-        //res.send(data)
-        res.redirect(307, '/api/send-email');
-        
+        res.send(data);        
 
     })
     .catch(err =>{
